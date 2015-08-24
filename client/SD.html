@@ -1,0 +1,34 @@
+<!-- template for SDshow checkbox. -->
+<template name="SDshow">
+    <label class="show-SD">
+        <input type="checkbox" checked="{{showSD}}" />
+        Show Standard Deviation
+    </label>
+</template>
+
+<!-- template for SD sliders. -->
+<template name="setTH">
+    <span>Setting SD threshold: {{sTHpct}}%</span>
+    <div class="slider-container">
+      <div id="SDSlider"></div>
+    </div>
+</template>
+
+<!-- sdboxTrigger & sdbox: -->
+<!-- template for SD setting pop up.  -->
+<!-- using meteor package: lookback:dropdowns -->
+<template name="sdboxTrigger">
+  <a href="#" style="color: #6f747e"><img src="/Img-ruler.png" class="imgRuler" style="margin-bottom: 15px; height: 35px">SD Setting</a>
+</template>
+
+<template name="sdbox">
+  <div class="SD-div">
+        {{> SDshow}}
+        <!-- template file is in SD.html -->
+        <!-- helper and events are in SD.js -->
+        <p></p>
+        {{> setTH}}
+        <!-- template file is in SD.html -->
+        <!-- helper and events are in SD.js -->
+  </div>
+</template>

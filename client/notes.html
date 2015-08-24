@@ -1,0 +1,95 @@
+<template name="notes">    
+    <tr>
+    	<td></td>   	    	     	
+    	{{#each colhere row projectID}}
+        <!-- Template.notes.helpers, notes.js -->
+    	{{> noteArea}}    	
+    	{{/each}}
+        <!--noteArea: template file in notes.html-->
+        <!--helpers and events in notes.js-->
+    </tr>
+</template>
+
+<template name="reportNotes">    
+    <tr>
+        <td></td>                      
+        {{#each colhere row projectID}}
+        <!-- Template.notes.helpers, notes.js -->
+        {{> reportNoteArea}}
+       {{/each}}
+        <!--reportNoteArea: template file in notes.html-->
+        <!--helpers and events in notes.js-->
+    </tr>
+</template>
+
+<template name="noteArea">
+
+<td colspan="{{columnWeight}}" class='notebook'>
+    <ul>
+    
+        <!-- notelist -->
+    	{{#each notelist}}
+        	{{> noteList}}
+        {{/each}}
+        <!--noteList: template file in notes.html-->
+        <!--helpers and events in notes.js-->
+       
+
+        <!-- 'click to add' area -->    
+        <li>
+        {{#with addNoteDefault}}
+        {{> addNote}}
+        <!--addNote: template file in notes.html-->
+        <!--helpers and events in notes.js-->
+        {{/with}}
+        </li>
+
+    </ul>
+</td>   
+</template>
+
+
+<template name="reportNoteArea">
+<!-- similar with template:NoteArea, without colspan-->
+<td class='notebook'>
+    <ul>
+        
+        <!-- notelist -->
+        {{#each notelist}}
+            {{> noteList}}
+        {{/each}}
+        <!--noteList: template file in notes.html-->
+        <!--helpers and events in notes.js-->
+        
+        <!-- 'click to add' area --> 
+        <li>
+        {{#with addNoteDefault}}
+        {{> addNote}}
+        {{/with}}
+        </li>
+    </ul>
+</td>   
+</template>
+
+
+<template name="addNote">
+
+<span class="editable-text-trigger">
+{{> editableText collection="notes" field="content" saveOnFocusout=true beforeUpdate="setIsAddBefore" afterUpdate="addInsertHolder"}}
+</span>
+<!-- setIsAddBefore&addInsertHolder: collection.js     -->
+</template>
+
+<template name="noteList">
+<li >
+    <div class="note-head">{{name}}</div>
+    <div class="note-content">
+        {{#if editable}}
+            {{> editableText collection="notes" field="content" saveOnFocusout=true}}
+        {{else}}
+            {{content}}
+        {{/if}}
+    </div>
+</li>
+
+</template>

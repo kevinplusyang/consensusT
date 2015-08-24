@@ -1,0 +1,151 @@
+<template name = 'matrix'>
+
+<div class="table-container">
+     <table>
+      <tr>
+        <td class="table-null"></td>
+        <td colspan="2" class="table-head" style="width:296px">Total Score</td>
+        <!-- display row -1 -->
+        {{#each cellFindRow -1 currentUserr currentProjectt}}
+        {{> cellshow}}
+        {{/each}}
+      </tr>
+      <!--cellshow: template file in matrix.html-->
+      <!--helpers and events in pages.js-->
+      
+      <tr>
+          <td></td>
+          <td colspan="2" class="table-row0" style="font-size:14px">Weight</td>
+
+          <!-- display row 0 -->
+          {{#each cellFindRow 0 currentUserr currentProjectt}}
+            {{> cellshow}}
+          {{/each}}         
+          <!--cellshow: template file in matrix.html-->
+          <!--helpers and events in pages.js-->
+      </tr>
+      
+
+      <!-- display row >=1 -->
+      {{#each rowNum currentUserr currentProjectt}}
+         {{> matBody}}
+       {{/each}}
+       <!--matBody: template file in matrix.html-->
+       <!--helpers and events in pages.js-->
+
+     </table>
+</div>
+
+
+ <!--<h3>New test</h3>-->
+  <!---->
+  <!--<ul>{{#each cellthis currentUserr currentProjectt}}-->
+  <!--{{> celllist}}-->
+  <!--{{/each}} -->
+  <!--</ul>-->
+
+  <!--<h3>test</h3>-->
+  <!---->
+  <!--<ul>{{#each cell currentProjectt}}-->
+  <!--{{> celllist}}-->
+  <!--{{/each}} -->
+  <!--</ul>-->
+  <!--&lt;!&ndash; {{> adding}} &ndash;&gt;-->
+
+
+</template>
+
+<template name = "matBody">
+      <!-- dispaly row>=1 -->
+      <tr>
+
+        {{#each cellFindRow row projectID userID}}
+        {{> cellshow}}
+        {{/each}}
+      </tr>
+      <!-- whether to display notes -->
+      <!--{{#if showNotes row}}-->
+      <!--{{> notes}}-->
+      <!--{{/if}}-->
+      <!--notes: template file in notes.html-->
+      <!--helpers and events in notes.js-->
+
+</template>
+
+<template name = "cellshow">
+<!--helpers and events in pages.js-->
+<td class="table-{{type}}">
+  {{#if oi userID row column}}
+  <!-- editable or not -->
+
+      {{#if notWeight}}
+          <img src="/pen.png" style="width: 15px; height: 15px">
+
+          {{> editableText collection="cells" field="data" saveOnFocusout=true}}
+
+
+
+          <!--<input placeholder={{data}}>-->
+      {{else}}
+        <!--{{> sliderCell}}-->
+          {{> editableText collection="cells" field="data" saveOnFocusout=true userCanEdit=false}}
+        <!--sliderCell: template file in matrix.html-->
+        <!--helpers and events in pages.js-->
+      {{/if}}
+
+  {{else}}
+
+      {{#if notWeight}}
+        {{> editableText collection="cells" field="data" saveOnFocusout=true  userCanEdit=false}}
+          {{#if isFactor}}
+        <!--<label class="show-notes">-->
+          <!--<input type="checkbox" checked="{{showNotes row}}" style="visibility: hidden" />-->
+          <!--{{# if showNotes row}}         -->
+            <!--<img src="/noteicon.png" style="width: 20px; height: 20px">-->
+          <!--{{else}}-->
+            <!--&lt;!&ndash; Show Notes &ndash;&gt;-->
+            <!--<img src="/noteIconLight.png" style="width: 20px; height: 20px">-->
+          <!--{{/if}}-->
+        <!--</label>-->
+          {{/if}}
+      {{else}}
+         {{dataPercent}}%
+      {{/if}}
+
+  {{/if}}
+
+  </td>
+</template>
+
+<template name = "celllist">
+    <li>row: {{> editableText collection="cells" field="row" saveOnFocusout=true}}
+    column: {{> editableText collection="cells" field="column" saveOnFocusout=true}}
+    data: {{> editableText collection="cells" field="data" saveOnFocusout=true}}
+    project: {{> editableText collection="cells" field="projectID" saveOnFocusout=true}}
+    userID: {{> editableText collection="cells" field="userID" saveOnFocusout=true}}
+    isReport: {{> editableText collection="cells" field="isReport" saveOnFocusout=true}}
+        SDdata: {{> editableText collection="cells" field="SDdata" saveOnFocusout=true}}
+
+    <a href="#" class="delete-cell">Delete</a>
+    </li>
+</template>
+
+
+
+<template name="adding">
+    <form>
+        Add a cell in project "p4tETnfgHArySKLGJ":
+        <input type="text" placeholder="row" name="rowNo" />
+        <br/>
+        <input type="text" placeholder="col" name="colNo" />
+        <br/>
+        <input type="submit" value="Submit" />
+    </form>
+</template> 
+
+<!--<template name="sliderCell">-->
+    <!--<div class="slider-container"> -->
+              <!--<div class="sliderrr"></div>-->
+    <!--</div>-->
+    <!--<span>{{dataPercent}}%</span>-->
+<!--</template>-->

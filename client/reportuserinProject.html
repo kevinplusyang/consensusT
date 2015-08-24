@@ -1,0 +1,28 @@
+<template name="reportuserInProject">
+    <!--Show the existing users in the report page-->
+
+    <ul style="margin: 0px ; padding-left: 0px">
+        <li class="projectListCell" style="list-style-type: none ;  height: 70px ;text-align: center;border-bottom: 1px solid #FFFFFF;">
+            <div style="margin-top: 4px ">
+                <a href="/project/{{this._id}}/flag/report" style="color: #ffffff; font-family: STHeitiSC-Medium; font-size: 15px"><img src="/everyone3.png" style="width: 60px; height: 60px"></a>
+                <!--Generate a link like: http://xxx.com/project/<projectID>/flag/report/-->
+            </div>
+        </li>
+
+        {{#each reportuserInProject}}
+            <!--JS file in reportuserinProject.js-->
+            <li class="projectListCell" style="border-bottom: 1px solid #FFFFFF">
+                <div style="margin-top: 27px">
+                    <a href="/project/{{pj}}/{{userId}}" style="color: #ffffff; font-family: STHeitiSC-Medium; font-size: 15px">{{username}}</a>
+                    <!--Generate a link like: http://xxx.com/project/<projectID>/<UserID>/-->
+                    <!--<div style="right: 0px">-->
+                        <a href="#" class="delete-user"><img src="/delete.png" style="width: 10px; height: 10px;margin-left: 10px; margin-bottom: 5px"></a>
+                    <!--</div>-->
+
+
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+
+</template>

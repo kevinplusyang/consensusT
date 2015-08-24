@@ -1,0 +1,30 @@
+<template name="projectList">
+    <!--Show the existing projects in a list-->
+
+    <div class='right-container'>
+
+        <div class='panel panel-default'>
+
+            <div class="panel-heading">
+                <h3>My Matrix</h3>
+            </div>
+
+            <div class="panel-body">
+
+                <ul class="list-group">
+                    {{#each project}}
+                    <!-- Template.projectList.helpers, in pages.js -->
+                        <li class="list-group-item"><a href="/project/{{_id}}/{{currentUserrr}}">{{name}}</a></li>
+                        <!--Press the button, it can generate a link like: Http://XXX.com/project/<projectID>/<userID>/ -->
+                    {{/each}}
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+

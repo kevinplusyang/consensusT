@@ -1,0 +1,137 @@
+<template name="home">
+
+    {{#if currentUser}}
+        <!--If user logged in, use user template-->
+
+        {{> user}}
+        <!--Html file in user.html-->
+
+    {{else}}
+        <!--If user not logged in, use the following template-->
+
+        <div style="position: relative; z-index: 999999">
+            {{> navigation}}
+            <!--Html file in navigation.html-->
+            <!--JS file in user.js-->
+        </div>
+
+        <div id="home-left" class="col-md-6">
+            {{> register}}
+            <!--Html file in home.html-->
+            <!--JS file in user.js-->
+        </div>
+
+        <div id="home-right" class="col-md-6 right-con">
+            <!--{{> login}}-->
+            <!--Html file in home.html-->
+            <!--JS file in user.js-->
+
+
+
+            <div id="l1" class="col-md-offset-1">
+                <div>
+                    <p id="login">
+                        Pilot Version
+                    </p>
+                    <!--<p id="login">-->
+                    <!--Please don't logout-->
+                    <!--</p>-->
+                    <br>
+
+                    <p style="color: #FFFFFF; font-size: 20px">
+                        If you are in this page during the test, please contact us.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    {{/if}}
+
+</template>
+
+
+
+<template name="register">
+    <!--Template for register-->
+    <!--Template events in user.js-->
+
+    <script>
+        //Control an animation in home page.
+        //Abandoned in the final version.
+        var $elem = $('#main .triphome'), l = $elem.length, i = 0;
+        function sleep(millis){var njf1 = njen(this,arguments,"millis");nj:while(1) {try{switch(njf1.cp) { case 0:njf1._notifier=NjsRuntime.createNotifier();setTimeout(njf1._notifier,njf1._millis);njf1.cp = 1;njf1._notifier.wait(njf1);return;case 1:break nj; }} catch(ex) { if(!njf1.except(ex,1)) return; }} njf1.pf();}
+        function go() {
+            $elem.eq(i % l).fadeIn(1100, function() {
+                $elem.eq(i % l).fadeOut(1100,go);
+                i++;
+            })
+        }
+        go();
+    </script>
+
+
+    <div class="col-md-8 col-md-offset-1">
+        <!--Div for homepage-->
+        <div id="r1">
+            <p id="create">Create</p>
+        </div>
+
+        <div id="r3">
+            <p id="yourown">Your Own</p>
+        </div>
+
+        <div id="r4">
+            <p id="gdm">Group Decision Matrix</p>
+        </div>
+
+        <div>
+            <form class="register">
+                <p class="register-1"> <input class="home-input" style="border-radius: 5px ; padding-left: 10px"  type="text" name="username" placeholder="Please Enter Your Name"></p>
+                <!--<p class="register-1"> <input class="home-input" style="border-radius: 5px ; padding-left: 10px" type="password" name="password" placeholder="Password"></p>-->
+                <div class="col-md-offset-3">
+                    <p>
+                        <input type="submit" value="Enter Pilot" id="registerbtm" style="border-radius: 5px">
+                    </p>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</template>
+
+
+
+<template name="login">
+    <!--Login Template-->
+    <!--Template events in user.js-->
+
+    <div id="l1" class="col-md-offset-1">
+        <div>
+            <p id="login">
+                Pilot Version
+            </p>
+        </div>
+
+        <!--<div id="l2">-->
+        <!--<form class="login">-->
+        <!--<p class="register-1"> <input type="text" class="home-input" style="border-radius: 5px; padding-left: 10px" id="username" placeholder="Username"></p>-->
+        <!--<p class="register-1"> <input type="password" class="home-input" style="border-radius: 5px ; padding-left: 10px" id="password" placeholder="Password"></p>-->
+
+        <!--<div class="col-sm-offset-2">-->
+        <!--<p><input type="submit" value="Login" id="loginbtm" style="border-radius: 5px"></p>-->
+        <!--</div>-->
+
+        <!--</form>-->
+        <!--</div>-->
+
+    </div>
+
+</template>

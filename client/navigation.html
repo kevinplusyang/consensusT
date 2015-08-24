@@ -1,0 +1,69 @@
+<template name="navigation">
+    <!--Navigation template-->
+
+    <nav class="navbar navbar-default">
+
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Brand" src="/CONSENSUS.png" style="margin-left: 53px; margin-top: 2px">
+                </a>
+            </div>
+
+            <div id="navigationButton">
+                <!--Menu on navigation bar, Including a menu button and the drop down menu-->
+
+                {{#dropdownTrigger name="dropdownTest" }}
+                    <!--Menu button-->
+                    <button type="button" class="btn btn-lg  dropdown-toggle" style="height: 45px; width: 45px;background-color: #6b6f78" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="/menu%20logo.png">
+                    </button>
+                {{/dropdownTrigger}}
+
+                {{#dropdown name="dropdownTest"}}
+                    <!--Drop down menu-->
+
+                    <ul id="menuStyle">
+
+                        {{#if currentUser}}
+                            <div style="padding: 5px">
+                                <li><a href="/" class="toggleMenu">Project List</a></li>
+                            </div>
+
+                            <div style="padding: 5px">
+                                <li><a href="/profile" class="profile toggleMenu">Profile</a></li>
+                            </div>
+
+                            <div style="padding: 5px">
+                                <li><a href="#" class="logout toggleMenu">Logout</a></li>
+                            </div>
+
+                        {{else}}
+
+                            <!--<div style="padding: 5px">-->
+                            <!--<li><a href="/" class="toggleMenu">Home</a></li>-->
+                            <!--</div>-->
+                            <!--<div style="padding: 5px">-->
+                            <!--<li><a href="/" class="toggleMenu">About</a></li>-->
+                            <!--</div>-->
+                            <div style="padding: 5px">
+                                <li><a href="/emergency" class="toggleMenu">EMERGENCY</a></li>
+                                <li><a href="/" class="toggleMenu">Home</a></li>
+                            </div>
+                        {{/if}}
+
+                    </ul>
+
+                {{/dropdown}}
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="bootstrap.js"></script>
+
+</template>

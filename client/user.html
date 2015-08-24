@@ -1,0 +1,56 @@
+<template name="user">
+<!-- if the user has loggin -->
+{{#if currentUser}}
+   <div style="position: relative; z-index: 999999">
+       {{> navigation}}
+   </div>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-3 left-con">
+                {{> addProject}}
+                <!-- HTML file is in user.html -->
+                <!-- JS file is in pages.js  -->
+                {{> joinProject}}
+                <!-- HTML file is in user.html -->
+                <!-- JS file is in user.js  -->
+            </div>
+            <div class="col-md-9">
+                <!--Show the project list in control panel-->
+                {{> projectList}}
+                <!-- HTML file is in projectList.html -->
+                <!-- JS file is in pages.js  -->
+            </div>        
+        </div>
+    </div>
+    
+{{else}}
+
+<p>please login</p>
+
+{{/if}}
+</template>
+
+<!--template: Input container for adding new project-->
+<template name="addProject">
+    <div>
+        <div id='addProject'>
+            <img src="/ImgNewMatrix.png">
+            <form>Add New Project<br />
+            <input type="text" placeholder="New Project Name" name="projectName">
+            </form>
+        </div>
+    </div>  
+</template>
+
+
+<!--Input container for adding user template-->
+<template name="joinProject">
+    <form>Input Invite Code<br />
+        <input type="text" placeholder="Input Invite Code" name="joinproject">
+    </form>
+
+</template>
+
+

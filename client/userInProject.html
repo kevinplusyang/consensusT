@@ -1,0 +1,25 @@
+<template name="userInProject">
+    <!--Template to show existing users in one project-->
+
+    <ul style="margin: 0px ; padding-left: 0px; width: 100%">
+
+        <li class="projectListCell" style="list-style-type: none ;  height: 70px ;text-align: center;border-bottom: 1px solid #FFFFFF">
+            <div style="margin-top: 3px">
+                <a href="/project/{{currentProjectt}}/flag/report" style="color: #ffffff; font-family: STHeitiSC-Medium; font-size: 15px"><img src="/everyone3.png" style="width: 60px; height: 60px"></a>
+                <!--Report button to jump into the report page-->
+            </div>
+        </li>
+
+        {{#each userInProject currentProjectt}}
+            <li class="projectListCell" style="border-bottom: 1px solid #FFFFFF">
+                <div style="margin-top: 27px; word-break: break-all">
+                    <a href="/project/{{pj}}/{{userId}}" style="color: #ffffff; font-family: STHeitiSC-Medium; font-size: 15px;">{{username}}</a>
+
+                    <!--Show all users-->
+                </div>
+            </li>
+        {{/each}}
+
+    </ul>
+
+</template>
