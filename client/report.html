@@ -1,4 +1,5 @@
 <!-- report template -->
+<!-- report template -->
 <template name = 'reportMatrix'>
 
     <div class="sidebarUserInProject" style="position: fixed;  height: 100%; z-index: 999999">
@@ -158,13 +159,13 @@
 
               {{#if isCandidate }}
                   {{> editableText collection="cells" field="data" saveOnFocusout=true}}
-                  <a href="#" ><img src="/delete.png" style="width: 10px; height: 10px;margin-left: 10px; margin-bottom: 5px"></a>
+                  <a href="#" class="delete-candi"><img src="/delete.png" style="width: 10px; height: 10px;margin-left: 10px; margin-bottom: 5px"></a>
               {{else}}
 
                 {{#if isFactor}}
 
                   {{> editableText collection="cells" field="data" saveOnFocusout=true}}
-                  <a href="#"><img src="/delete.png" style="width: 10px; height: 10px;margin-left: 10px; margin-bottom: 5px"></a>
+                  <a href="#" class="delete-fac"><img src="/delete.png" style="width: 10px; height: 10px;margin-left: 10px; margin-bottom: 5px"></a>
 
                   <!-- show-notes check boxs in factor cells -->
                   <!--<label class="show-notes">-->

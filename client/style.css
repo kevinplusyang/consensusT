@@ -302,7 +302,7 @@ a {
 }
 .delete-candi,.delete-fac{
 	font-size: 10px;
-	float: right;
+	/*float: right;*/
 }
 .addButton{
 	/*background-image: url('/Btn-Add.png');*/

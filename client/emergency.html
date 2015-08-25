@@ -1,4 +1,4 @@
-<template name="home">
+<template name="emergency">
 
     {{#if currentUser}}
         <!--If user logged in, use user template-->
@@ -22,35 +22,9 @@
         </div>
 
         <div id="home-right" class="col-md-6 right-con">
-            <!--{{> login}}-->
+            {{> login}}
             <!--Html file in home.html-->
             <!--JS file in user.js-->
-
-
-
-            <div id="l1" class="col-md-offset-1">
-                <div>
-                    <p id="login">
-                        Pilot Version
-                    </p>
-                    <!--<p id="login">-->
-                    <!--Please don't logout-->
-                    <!--</p>-->
-                    <br>
-
-                    <p style="color: #FFFFFF; font-size: 20px">
-                        If you are in this page during the test, please contact us.
-
-                    </p>
-                    <img src="/protolab.png" style="margin-top: 30px">
-
-
-                </div>
-
-            </div>
-
-
-
         </div>
 
     {{/if}}
@@ -122,17 +96,17 @@
             </p>
         </div>
 
-        <!--<div id="l2">-->
-        <!--<form class="login">-->
-        <!--<p class="register-1"> <input type="text" class="home-input" style="border-radius: 5px; padding-left: 10px" id="username" placeholder="Username"></p>-->
-        <!--<p class="register-1"> <input type="password" class="home-input" style="border-radius: 5px ; padding-left: 10px" id="password" placeholder="Password"></p>-->
+        <div id="l2">
+        <form class="login">
+        <p class="register-1"> <input type="text" class="home-input" style="border-radius: 5px; padding-left: 10px" id="username" placeholder="Username"></p>
+        <p class="register-1"> <input type="password" class="home-input" style="border-radius: 5px ; padding-left: 10px" id="password" placeholder="Password"></p>
 
-        <!--<div class="col-sm-offset-2">-->
-        <!--<p><input type="submit" value="Login" id="loginbtm" style="border-radius: 5px"></p>-->
-        <!--</div>-->
+        <div class="col-sm-offset-2">
+        <p><input type="submit" value="Login" id="loginbtm" style="border-radius: 5px"></p>
+        </div>
 
-        <!--</form>-->
-        <!--</div>-->
+        </form>
+        </div>
 
     </div>
 
