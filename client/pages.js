@@ -69,7 +69,7 @@ var updateTotal = function(proID,userID){
 
                       //sum += normalized weight * cell.data
 
-                      if(cellInside.data==1||cellInside.data==2||cellInside.data==3) {
+                      if(cellInside.data==1||cellInside.data==2||cellInside.data==3||cellInside.data==4||cellInside.data==5||cellInside.data==6||cellInside.data==7||cellInside.data==8||cellInside.data==9||cellInside.data==10) {
 
                           sum = sum + Number(cellFindOne(cellInside.row, 2, proID, userID).data) * Number(cellInside.data);
 

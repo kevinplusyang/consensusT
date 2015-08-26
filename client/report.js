@@ -39,6 +39,7 @@ var calculateOne = function(rowNo, columnNo,proID){
         if(isNaN(cellUser.data)){
 
         }else{
+
             sum = sum + Number(cellUser.data);
             count = count+1;
         }
@@ -311,7 +312,7 @@ Template.reportcellshow.helpers({
               var maxSD=findMaxSD(this.projectID);
               var SDth = Number(thisProject.sTH)*maxSD;
               
-              if(this.SDdata <= SDth){
+              if(this.SDdata >= SDth){
                 var changeColor = true;
               }else{
                 changeColor=false;
@@ -391,6 +392,8 @@ Template.addCandidate.events({
 
       for(var item in this.users){
         var nowUserId=this.users[item].userId;
+          var nowUsername=this.users[item].username;
+
         
         for (i=-1;i<=Number(this.rows);i++){
           if(i===0){     
@@ -401,7 +404,8 @@ Template.addCandidate.events({
               createdAt: new Date(),
               column: Number(this.columns)+3,
               projectID:this._id,
-              SDdata:0});
+              SDdata:0,
+          username:nowUsername});
           }else{
           Cells.insert({
           userID: nowUserId,isReport: false,
@@ -410,7 +414,8 @@ Template.addCandidate.events({
           createdAt: new Date(),
           column: Number(this.columns)+3,
           projectID:this._id,
-          SDdata:0
+          SDdata:0,
+              username:nowUsername
           });
         }
       }    
@@ -462,6 +467,8 @@ Template.addFactor.events({
      for(var item in this.users){
 
         var nowUserId=this.users[item].userId;
+         var nowUsername=this.users[item].username;
+
         for (var i=0;i<=Number(this.columns)+2;i++){
         
           if(i===0){     
@@ -472,7 +479,8 @@ Template.addFactor.events({
             createdAt: new Date(),
             column: 0,
             projectID:this._id,
-            SDdata:0});
+            SDdata:0,
+                username:nowUsername});
           }else{
             Cells.insert({
             userID: nowUserId,isReport: false,
@@ -481,7 +489,8 @@ Template.addFactor.events({
             createdAt: new Date(),
             column: i,
             projectID:this._id,
-            SDdata:0});
+            SDdata:0,
+                username:nowUsername});
           }
       }    
     }

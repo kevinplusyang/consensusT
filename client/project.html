@@ -43,29 +43,45 @@
             <!--Project Navigation bar-->
 
             <div class="project-nav">
-
-                <h2>Project: {{projectName}}</h2>
+                <div style="float:left;width:400px;margin:20px auto;margin-top: 0px; margin-left: 20px">
+                <p style="color: #196d85; font-size: 15px">Project Name - </p>
+                    <p style="color: #196d85; font-size: 20px">
+                        {{projectName}}
+                    </p>
+                </div>
                 <!--Show project name-->
 
-                <div class='profile'>
-                    <!--<img src="/Img-project-nav-head.png">-->
 
-                    User:
-                    {{userToSee.username}}
+                <div style="float:left;width:200px;margin:20px auto;margin-top: 10px; margin-left: 20px">
+                    <!--<p style="color: #196d85; font-size: 15px">User - </p>-->
+                    <p style="color: #196d85; font-size: 20px">
+                        USER: {{userToSee.username}}
 
-                    <!--<a  class="btn btn-default" id="menu-toggle" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px; margin-left: 30px"><img src="/chaticon.png" style="margin-right: 10px ;width: 30px; height: 30px">Chat Room</a>-->
-                    <!--Button to trigger the expand and collapse of the chat room and user list.-->
-
+                    </p>
 
 
-                    <!--<a  href="/project/{{currentProjectt}}/flag/report" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px; margin-left: 10px"><img src="/groupPerson.png" style="margin-right: 10px; height: 25px; width: 35px; margin-bottom: 7px">All</a>-->
 
-                    <!--&lt;!&ndash;<a id="notesAll" href="#"><img src="/noteicon.png">Collapse Notes</a>&ndash;&gt;-->
+                    </div>
+
+                <!--<div class='profile'>-->
+                    <!--&lt;!&ndash;<img src="/Img-project-nav-head.png">&ndash;&gt;-->
+
+                    <!--User:-->
+                    <!--{{userToSee.username}}-->
+
+                    <!--&lt;!&ndash;<a  class="btn btn-default" id="menu-toggle" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px; margin-left: 30px"><img src="/chaticon.png" style="margin-right: 10px ;width: 30px; height: 30px">Chat Room</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;Button to trigger the expand and collapse of the chat room and user list.&ndash;&gt;-->
 
 
-                    <!--<p>Invite Code: {{currentProjectt}}</p>-->
-                    <!--&lt;!&ndash;Show invitation code&ndash;&gt;-->
-                </div>
+
+                    <!--&lt;!&ndash;<a  href="/project/{{currentProjectt}}/flag/report" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px; margin-left: 10px"><img src="/groupPerson.png" style="margin-right: 10px; height: 25px; width: 35px; margin-bottom: 7px">All</a>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;&lt;!&ndash;<a id="notesAll" href="#"><img src="/noteicon.png">Collapse Notes</a>&ndash;&gt;&ndash;&gt;-->
+
+
+                    <!--&lt;!&ndash;<p>Invite Code: {{currentProjectt}}</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;Show invitation code&ndash;&gt;&ndash;&gt;-->
+                <!--</div>-->
 
             </div>
 
@@ -76,6 +92,10 @@
             {{> matrix}}
             <!--Html file in matrix.html-->
             <!--JS file in pages.js-->
+        </div>
+
+        <div style="padding-left: 200px; padding-top: 30px">
+            <p style="color: #1b6d85; font-size: 20px">Please use integers between 1~10 to compare candidates</p>
         </div>
 
     </div>

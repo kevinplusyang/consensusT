@@ -64,14 +64,14 @@ a {
 .project-nav{
 	background-color:#f1f3f4;
 	width: 100%;
-	height: 125px;
+	height: 100px;
 	padding-left: 100px;
-	padding-top: 30px;
+	padding-top: 25px;
 }
 .project-nav h2{
 	margin-top: 0;
 	color: #269fb2;
-	width: 30%;
+	width: 10%;
 	margin: 0;
 	float: left;
 }
@@ -349,8 +349,8 @@ a {
 
 }
 .slider-container{
-	width:90%;
-	margin-left: 5%;
+	width:77%;
+	margin-left: 0%;
 	margin-top: 10px;
 }
 
