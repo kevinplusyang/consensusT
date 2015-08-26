@@ -16,13 +16,13 @@
         </div>
 
         <div id="home-left" class="col-md-6">
-            {{> register}}
+            <!--{{> register}}-->
             <!--Html file in home.html-->
             <!--JS file in user.js-->
         </div>
 
         <div id="home-right" class="col-md-6 right-con">
-            {{> login}}
+            {{> login2}}
             <!--Html file in home.html-->
             <!--JS file in user.js-->
         </div>
@@ -33,59 +33,59 @@
 
 
 
-<template name="register">
-    <!--Template for register-->
-    <!--Template events in user.js-->
+<!--<template name="register">-->
+    <!--&lt;!&ndash;Template for register&ndash;&gt;-->
+    <!--&lt;!&ndash;Template events in user.js&ndash;&gt;-->
 
-    <script>
-        //Control an animation in home page.
-        //Abandoned in the final version.
-        var $elem = $('#main .triphome'), l = $elem.length, i = 0;
-        function sleep(millis){var njf1 = njen(this,arguments,"millis");nj:while(1) {try{switch(njf1.cp) { case 0:njf1._notifier=NjsRuntime.createNotifier();setTimeout(njf1._notifier,njf1._millis);njf1.cp = 1;njf1._notifier.wait(njf1);return;case 1:break nj; }} catch(ex) { if(!njf1.except(ex,1)) return; }} njf1.pf();}
-        function go() {
-            $elem.eq(i % l).fadeIn(1100, function() {
-                $elem.eq(i % l).fadeOut(1100,go);
-                i++;
-            })
-        }
-        go();
-    </script>
-
-
-    <div class="col-md-8 col-md-offset-1">
-        <!--Div for homepage-->
-        <div id="r1">
-            <p id="create">Create</p>
-        </div>
-
-        <div id="r3">
-            <p id="yourown">Your Own</p>
-        </div>
-
-        <div id="r4">
-            <p id="gdm">Group Decision Matrix</p>
-        </div>
-
-        <div>
-            <form class="register">
-                <p class="register-1"> <input class="home-input" style="border-radius: 5px ; padding-left: 10px"  type="text" name="username" placeholder="Please Enter Your Name"></p>
-                <!--<p class="register-1"> <input class="home-input" style="border-radius: 5px ; padding-left: 10px" type="password" name="password" placeholder="Password"></p>-->
-                <div class="col-md-offset-3">
-                    <p>
-                        <input type="submit" value="Enter Pilot" id="registerbtm" style="border-radius: 5px">
-                    </p>
-                </div>
-
-            </form>
-        </div>
-
-    </div>
-
-</template>
+    <!--<script>-->
+        <!--//Control an animation in home page.-->
+        <!--//Abandoned in the final version.-->
+        <!--var $elem = $('#main .triphome'), l = $elem.length, i = 0;-->
+        <!--function sleep(millis){var njf1 = njen(this,arguments,"millis");nj:while(1) {try{switch(njf1.cp) { case 0:njf1._notifier=NjsRuntime.createNotifier();setTimeout(njf1._notifier,njf1._millis);njf1.cp = 1;njf1._notifier.wait(njf1);return;case 1:break nj; }} catch(ex) { if(!njf1.except(ex,1)) return; }} njf1.pf();}-->
+        <!--function go() {-->
+            <!--$elem.eq(i % l).fadeIn(1100, function() {-->
+                <!--$elem.eq(i % l).fadeOut(1100,go);-->
+                <!--i++;-->
+            <!--})-->
+        <!--}-->
+        <!--go();-->
+    <!--</script>-->
 
 
+    <!--<div class="col-md-8 col-md-offset-1">-->
+        <!--&lt;!&ndash;Div for homepage&ndash;&gt;-->
+        <!--<div id="r1">-->
+            <!--<p id="create">Create</p>-->
+        <!--</div>-->
 
-<template name="login">
+        <!--<div id="r3">-->
+            <!--<p id="yourown">Your Own</p>-->
+        <!--</div>-->
+
+        <!--<div id="r4">-->
+            <!--<p id="gdm">Group Decision Matrix</p>-->
+        <!--</div>-->
+
+        <!--<div>-->
+            <!--<form class="register">-->
+                <!--<p class="register-1"> <input class="home-input" style="border-radius: 5px ; padding-left: 10px"  type="text" name="username" placeholder="Please Enter Your Name"></p>-->
+                <!--&lt;!&ndash;<p class="register-1"> <input class="home-input" style="border-radius: 5px ; padding-left: 10px" type="password" name="password" placeholder="Password"></p>&ndash;&gt;-->
+                <!--<div class="col-md-offset-3">-->
+                    <!--<p>-->
+                        <!--<input type="submit" value="Enter Pilot" id="registerbtm" style="border-radius: 5px">-->
+                    <!--</p>-->
+                <!--</div>-->
+
+            <!--</form>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+<!--</template>-->
+
+
+
+<template name="login2">
     <!--Login Template-->
     <!--Template events in user.js-->
 
