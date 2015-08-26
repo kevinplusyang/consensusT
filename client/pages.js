@@ -226,15 +226,15 @@ Template.projectList.helpers({
 
 
 
-var initialProject = function(proID,userID){
+var initialProject = function(proID,userID,names){
   
   // insert report cells
     Cells.insert({userID: null,isReport : true ,projectID:proID,row:-1,column:3,data:0,createdAt: new Date(),SDdata:0});
     Cells.insert({userID: null,isReport : true ,projectID:proID,row:-1,column:4,data:0,createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: null,isReport : true ,projectID:proID,row:0,column:3,data:'New York',createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: null,isReport : true ,projectID:proID,row:0,column:4,data:'Hawaii',createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: null,isReport : true ,projectID:proID,row:1,column:0,data:'Cost',createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: null,isReport : true ,projectID:proID,row:2,column:0,data:'Safety',createdAt: new Date(),SDdata:0});
+    Cells.insert({userID: null,isReport : true ,projectID:proID,row:0,column:3,data:'Candidate 1',createdAt: new Date(),SDdata:0});
+    Cells.insert({userID: null,isReport : true ,projectID:proID,row:0,column:4,data:'Candidate 2',createdAt: new Date(),SDdata:0});
+    Cells.insert({userID: null,isReport : true ,projectID:proID,row:1,column:0,data:'Factor 1',createdAt: new Date(),SDdata:0});
+    Cells.insert({userID: null,isReport : true ,projectID:proID,row:2,column:0,data:'Factor 2',createdAt: new Date(),SDdata:0});
     Cells.insert({userID: null,isReport : true ,projectID:proID,row:1,column:1,data:0.75,createdAt: new Date(),SDdata:0});
     Cells.insert({userID: null,isReport : true ,projectID:proID,row:1,column:2,data:1,createdAt: new Date(),SDdata:0});
     Cells.insert({userID: null,isReport : true ,projectID:proID,row:1,column:3,data:2,createdAt: new Date(),SDdata:0});
@@ -245,20 +245,20 @@ var initialProject = function(proID,userID){
     Cells.insert({userID: null,isReport : true ,projectID:proID,row:2,column:4,data:1,createdAt: new Date(),SDdata:0});
 
   // insert users' cells
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:-1,column:3,data:0,createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:-1,column:4,data:0,createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:0,column:3,data:'New York',createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:0,column:4,data:'Hawaii',createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:1,column:0,data:'Cost',createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:2,column:0,data:'Safety',createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:1,column:1,data:0.75,createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:1,column:2,data:1,createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:1,column:3,data:2,createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:1,column:4,data:3,createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:2,column:1,data:0.25,createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:2,column:2,data:2,createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:2,column:3,data:3,createdAt: new Date(),SDdata:0});
-    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:2,column:4,data:1,createdAt: new Date(),SDdata:0});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:-1,column:3,data:0,createdAt: new Date(),SDdata:0, username:names});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:-1,column:4,data:0,createdAt: new Date(),SDdata:0, username:names});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:0,column:3,data:'Candidate 1',createdAt: new Date(),SDdata:0, username:names});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:0,column:4,data:'Candidate 2',createdAt: new Date(),SDdata:0, username:names});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:1,column:0,data:'Factor 1',createdAt: new Date(),SDdata:0, username:names});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:2,column:0,data:'Factor 2',createdAt: new Date(),SDdata:0, username:names});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:1,column:1,data:0.75,createdAt: new Date(),SDdata:0, username:names});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:1,column:2,data:1,createdAt: new Date(),SDdata:0, username:names});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:1,column:3,data:2,createdAt: new Date(),SDdata:0, username:names});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:1,column:4,data:3,createdAt: new Date(),SDdata:0, username:names});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:2,column:1,data:0.25,createdAt: new Date(),SDdata:0, username:names});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:2,column:2,data:2,createdAt: new Date(),SDdata:0, username:names});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:2,column:3,data:3,createdAt: new Date(),SDdata:0, username:names});
+    Cells.insert({userID: userID, isReport : false ,projectID:proID,row:2,column:4,data:1,createdAt: new Date(),SDdata:0, username:names});
     
   // insert showNotes flag in Session
     
@@ -267,12 +267,12 @@ var initialProject = function(proID,userID){
    Session.set({showSD: false});
 
   // insert notes.
-    Notes.insert({isAdd:true,row:1,column:1,projectID:proID,createdAt: new Date(),content:'Click Here To Add Comments',createdBy: Meteor.userId(),name:Meteor.user().username,url:''});
-    Notes.insert({isAdd:true,row:1,column:3,projectID:proID,createdAt: new Date(),content:'Click Here to Add Comments',createdBy: Meteor.userId(),name:Meteor.user().username,url:''});
-    Notes.insert({isAdd:true,row:1,column:4,projectID:proID,createdAt: new Date(),content:'Click Here to Add Comments',createdBy: Meteor.userId(),name:Meteor.user().username,url:''});
-    Notes.insert({isAdd:true,row:2,column:1,projectID:proID,createdAt: new Date(),content:'Click Here to Add Comments',createdBy: Meteor.userId(),name:Meteor.user().username,url:''});
-    Notes.insert({isAdd:true,row:2,column:3,projectID:proID,createdAt: new Date(),content:'Click Here to Add Comments',createdBy: Meteor.userId(),name:Meteor.user().username,url:''});
-    Notes.insert({isAdd:true,row:2,column:4,projectID:proID,createdAt: new Date(),content:'Click Here to Add Comments',createdBy: Meteor.userId(),name:Meteor.user().username,url:''});
+  //  Notes.insert({isAdd:true,row:1,column:1,projectID:proID,createdAt: new Date(),content:'Click Here To Add Comments',createdBy: Meteor.userId(),name:Meteor.user().username,url:''});
+  //  Notes.insert({isAdd:true,row:1,column:3,projectID:proID,createdAt: new Date(),content:'Click Here to Add Comments',createdBy: Meteor.userId(),name:Meteor.user().username,url:''});
+  //  Notes.insert({isAdd:true,row:1,column:4,projectID:proID,createdAt: new Date(),content:'Click Here to Add Comments',createdBy: Meteor.userId(),name:Meteor.user().username,url:''});
+  //  Notes.insert({isAdd:true,row:2,column:1,projectID:proID,createdAt: new Date(),content:'Click Here to Add Comments',createdBy: Meteor.userId(),name:Meteor.user().username,url:''});
+  //  Notes.insert({isAdd:true,row:2,column:3,projectID:proID,createdAt: new Date(),content:'Click Here to Add Comments',createdBy: Meteor.userId(),name:Meteor.user().username,url:''});
+  //  Notes.insert({isAdd:true,row:2,column:4,projectID:proID,createdAt: new Date(),content:'Click Here to Add Comments',createdBy: Meteor.userId(),name:Meteor.user().username,url:''});
 
     updateWeight(proID);
     updateTotal(proID);
@@ -296,7 +296,7 @@ Template.addProject.events({
             sTH:0.5
         }, function(error, result){        
           //call back:
-          initialProject(result,currentUser);
+          initialProject(result,currentUser,names);
           
           Router.go('project', {_id: result,_uid: currentUser})});
 

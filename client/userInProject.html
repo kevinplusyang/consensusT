@@ -10,15 +10,31 @@
             </div>
         </li>
 
-        {{#each userInProject currentProjectt}}
-            <li class="projectListCell" style="border-bottom: 1px solid #FFFFFF">
-                <div style="margin-top: 27px; word-break: break-all">
-                    <a href="/project/{{pj}}/{{userId}}" style="color: #ffffff; font-family: STHeitiSC-Medium; font-size: 15px;">{{username}}</a>
+        {{#each userInProject currentProjectt currentUserr}}
 
-                    <!--Show all users-->
-                </div>
-            </li>
+            {{#if curn userId cu}}
+                <li class="projectListCell" style="border-bottom: 1px solid #FFFFFF">
+                    <div style="margin-top: 27px; word-break: break-all">
+                        <a href="/project/{{pj}}/{{userId}}" style="color: #ffffff; font-family: STHeitiSC-Medium; font-size: 15px;">{{username}}</a>
+
+
+                    </div>
+                </li>
+                {{else}}
+                <li class="projectListCell2" style="border-bottom: 1px solid #FFFFFF">
+                    <div style="margin-top: 27px; word-break: break-all">
+                        <a href="/project/{{pj}}/{{userId}}" style="color: #ffffff; font-family: STHeitiSC-Medium; font-size: 15px;">{{username}}</a>
+
+
+                    </div>
+                </li>
+                {{/if}}
+
+
         {{/each}}
+
+
+
 
     </ul>
 

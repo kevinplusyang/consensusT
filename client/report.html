@@ -9,25 +9,25 @@
     </div>
 
     <div id="wrapper"  class="toggled" style="margin-left: 100px">
-       <div id="sidebar-wrapper">
-            <div id="sidebar" style="padding: 0px; height:inherit;width: 300px;">
+       <!--<div id="sidebar-wrapper">-->
+            <!--<div id="sidebar" style="padding: 0px; height:inherit;width: 300px;">-->
 
 
-                <div class="sidebarChatRoom">
-                    {{> reportchatrooms}}
-                    <!-- template file is in reportchatrooms.html -->
-                    <!-- helper and events are in reportchatrooms.js -->
+                <!--<div class="sidebarChatRoom">-->
+                    <!--{{> reportchatrooms}}-->
+                    <!--&lt;!&ndash; template file is in reportchatrooms.html &ndash;&gt;-->
+                    <!--&lt;!&ndash; helper and events are in reportchatrooms.js &ndash;&gt;-->
 
-                </div>
+                <!--</div>-->
 
-                <div class="sidebarNewChatItem">
-                    {{> reportnewChatItem}}
-                    <!-- template file is in reportchatrooms.html -->
-                    <!-- helper and events are in reportchatrooms.js -->
-                </div>
+                <!--<div class="sidebarNewChatItem">-->
+                    <!--{{> reportnewChatItem}}-->
+                    <!--&lt;!&ndash; template file is in reportchatrooms.html &ndash;&gt;-->
+                    <!--&lt;!&ndash; helper and events are in reportchatrooms.js &ndash;&gt;-->
+                <!--</div>-->
 
-            </div>
-        </div>
+            <!--</div>-->
+        <!--</div>-->
         
         {{> navigation}}
         <!-- template file is in navigation.html -->
@@ -36,10 +36,19 @@
         <div class="container-fluid">
         <!-- gray nav of project page -->
             <div class="project-nav">
+
                 <h2>Everyone: {{name}}</h2>
+
+
+
+
+
+
+
+
                 <!-- name:project attribution -->
 
-                <a  class="btn btn-default" id="menu-toggle" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px;"><img src="/chaticon.png" style="margin-right: 10px width: 30px; height: 30px; padding-right: 10px">Chat Room</a>
+                <!--<a  class="btn btn-default" id="menu-toggle" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px;"><img src="/chaticon.png" style="margin-right: 10px width: 30px; height: 30px; padding-right: 10px">Chat Room</a>-->
                 <a  href="/project/{{this._id}}/{{UID}}/" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px; margin-left: 20px"><img src="/singlePeople.png" style="margin-right: 10px;margin-bottom: 13px; height: 30px; width: 30px">Mine</a>
 
                 <a style="margin-left: 20px">
@@ -109,7 +118,10 @@
 
                 {{#each rowNum}}
                 <!-- template.report.helper, in report.js -->
+
                     {{> reportMatBody}}
+
+
                 {{/each}}
                 <!-- reportMatBody: template file is in report.html -->
                 <!-- helpers and events are in report.js -->
@@ -129,10 +141,19 @@
 <template name = "reportMatBody">
       <tr>
       <!-- Row > 0 -->
+
+
         {{#each cellFindRow row projectID}}
         <!-- Template.reportMatBody.helpers, in report.js -->
+
         {{> reportcellshow}}
+
+
+
         {{/each}}
+
+
+
         <!-- reportcellshow: template file is in report.html -->
         <!-- helpers and events are in report.js -->
       </tr>
@@ -150,7 +171,11 @@
 <template name = "reportcellshow">
 <!-- helpers and events are in report.js -->
 <!-- notWeight: to ignore unnormalized weight column in report page -->
+
 {{#if notWeight}}
+
+    {{#hovercard template="someTemplate" direction="horizontal" trigger="click"}}
+
       <td class="table-{{type}}">
             {{#if normalizedWeight}}
                 <span>{{dataPercent}}%</span>
@@ -182,12 +207,16 @@
 
                     {{data}}
 
+
                 {{/if}}
               {{/if}}
             {{/if}}
 
   </td>
+
+        {{/hovercard}}
 {{/if}}
+
 </template>
 
 
@@ -217,6 +246,25 @@
 
     </li>
 </template> -->
+
+
+<template name="someTemplate">
+
+
+
+    {{#each ggg this._id projectID}}
+
+        <div style=" margin: 10px; color: #269fb2">
+            {{username}}:
+            {{data}}
+        </div>
+
+    {{/each}}
+
+
+</template>
+
+
 
 
 

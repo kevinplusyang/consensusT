@@ -113,7 +113,7 @@ var updateTotal = function(proID,userID){
 /**
  Function: Initial Cell database when a user join a project by invitation code.
  **/
-var initialPageforInv = function(proID,userID){
+var initialPageforInv = function(proID,userID,names){
 
     var row = Projects.findOne({_id: proID}).rows;
     //row: How many rows in the existing project
@@ -122,30 +122,30 @@ var initialPageforInv = function(proID,userID){
 
     for(var k=3 ; k<=column+2 ; k++){
         var dataTemp = Cells.findOne({projectID: proID, isReport:true, row:-1, column:k}).data;
-        Cells.insert({userID: userID, isReport : false ,projectID:proID,row:-1,column:k,data:'Input',createdAt: new Date(),SDdata:0});
+        Cells.insert({userID: userID, isReport : false ,projectID:proID,row:-1,column:k,data:'Input',createdAt: new Date(),SDdata:0,username:names});
     }
 
     for(k=3 ; k<=column+2 ; k++){
         var dataTemp = Cells.findOne({projectID: proID, isReport:true, row:0, column:k}).data;
-        Cells.insert({userID: userID, isReport : false ,projectID:proID,row:0,column:k,data:dataTemp,createdAt: new Date(),SDdata:0});
+        Cells.insert({userID: userID, isReport : false ,projectID:proID,row:0,column:k,data:dataTemp,createdAt: new Date(),SDdata:0,username:names});
     }
     for(k=1 ; k<=row ; k++){
         var dataTemp = Cells.findOne({projectID: proID, isReport:true, row:k, column:0}).data;
-        Cells.insert({userID: userID, isReport : false ,projectID:proID,row:k,column:0,data:dataTemp,createdAt: new Date(),SDdata:0});
+        Cells.insert({userID: userID, isReport : false ,projectID:proID,row:k,column:0,data:dataTemp,createdAt: new Date(),SDdata:0,username:names});
     }
     for(k=1 ; k<=row ; k++){
         var dataTemp = Cells.findOne({projectID: proID, isReport:true, row:k, column:1}).data;
-        Cells.insert({userID: userID, isReport : false ,projectID:proID,row:k,column:1,data:dataTemp,createdAt: new Date(),SDdata:0});
+        Cells.insert({userID: userID, isReport : false ,projectID:proID,row:k,column:1,data:dataTemp,createdAt: new Date(),SDdata:0,username:names});
     }
     for(k=1 ; k<=row ; k++){
         var dataTemp = Cells.findOne({projectID: proID, isReport:true, row:k, column:2}).data;
-        Cells.insert({userID: userID, isReport : false ,projectID:proID,row:k,column:2,data:dataTemp,createdAt: new Date(),SDdata:0});
+        Cells.insert({userID: userID, isReport : false ,projectID:proID,row:k,column:2,data:dataTemp,createdAt: new Date(),SDdata:0,username:names});
     }
 
     for(var m=1; m<=row ; m++)
         for(var n =3 ; n<=column+2; n++){
             //var dataTemp = Cells.findOne({projectID: proID, isReport:true, row:m, column:n}).data;
-            Cells.insert({userID: userID, isReport : false ,projectID:proID,row:m,column:n,data:'Input',createdAt: new Date(),SDdata:0});
+            Cells.insert({userID: userID, isReport : false ,projectID:proID,row:m,column:n,data:'Input',createdAt: new Date(),SDdata:0,username:names});
         }
 
     updateWeight(proID,userID);
@@ -166,7 +166,7 @@ Template.joinProject.events({
         $('[name=joinproject]').val('');
 
         Projects.update({_id:joinproject},{$push: {users: {userId:currentUser,username:name}}});
-        initialPageforInv(joinproject,currentUser);
+        initialPageforInv(joinproject,currentUser,name);
     }
 });
 

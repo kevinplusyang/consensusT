@@ -364,6 +364,15 @@ a {
 
 }
 
+.projectListCell2{
+	list-style-type: none ;
+	border: 1px solid #359eb4;
+	height: 70px ;
+	text-align: center;
+	background-color: #7ed420;
+
+}
+
 #navigationButton{
 	margin-left: 300px;
 	position: absolute;

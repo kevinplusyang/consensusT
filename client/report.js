@@ -587,3 +587,25 @@ toggle shownotes: set session array showNotes.
     }
 
   });
+
+
+Template.someTemplate.helpers({
+    'ggg': function(cellid, what){
+        console.log(cellid);
+        var row = Cells.findOne({_id:cellid}).row;
+        var column = Cells.findOne({_id:cellid}).column;
+        console.log(row);
+        console.log(column);
+
+
+
+        if(column==0||row==0){
+            return false
+        }
+        else{
+            return Cells.find({isReport: false,row: row, column:column, projectID:what});
+        }
+
+
+    }
+})

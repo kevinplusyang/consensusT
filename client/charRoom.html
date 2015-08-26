@@ -1,49 +1,49 @@
-<template name="chatrooms">
-    <!--Chat room template: Show chat room-->
+<!--<template name="chatrooms">-->
+    <!--&lt;!&ndash;Chat room template: Show chat room&ndash;&gt;-->
 
-    <ul style="margin: 0px; padding: 0px">
-        <!--Show all chat sentence-->
-        {{#each chatroom currentProjectt}}
-            {{> chatItem}}
-            <!--JS file in chatroom.js-->
-            <!--Html file in charRoom.html-->
-        {{/each}}
-    </ul>
+    <!--<ul style="margin: 0px; padding: 0px">-->
+        <!--&lt;!&ndash;Show all chat sentence&ndash;&gt;-->
+        <!--{{#each chatroom currentProjectt}}-->
+            <!--{{> chatItem}}-->
+            <!--&lt;!&ndash;JS file in chatroom.js&ndash;&gt;-->
+            <!--&lt;!&ndash;Html file in charRoom.html&ndash;&gt;-->
+        <!--{{/each}}-->
+    <!--</ul>-->
 
-</template>
-
-
-
-<template name="chatItem">
-    <!--Show one chat item including username and sentence-->
-
-    <div class="col-md-12" style="padding-left: 3px; padding-right: 0px; display: inline; margin-top: 13px; margin-left: 0px">
-
-        <div class="col-md-4" style="padding: 0px; display: inline; word-break: break-all">
-            {{user}}
-            <!--Show username-->
-        </div>
-
-        <div class="col-md-8 col-md-offset-4" style="margin: 0px;border: 2px solid #359eb4; border-radius: 5px; background-color: #ffffff; padding: 5px; display: inline">
-
-            <p style=" word-wrap: break-word;">
-                {{content}}
-                <!--Show sentence-->
-            </p>
-
-        </div>
-
-    </div>
-
-</template>
+<!--</template>-->
 
 
 
-<template name="newChatItem">
-    <!--Input template for users to input the chat sentence-->
+<!--<template name="chatItem">-->
+    <!--&lt;!&ndash;Show one chat item including username and sentence&ndash;&gt;-->
 
-    <form>
-        <input type="text" placeholder="{{user}}Input Here" name="newItem" style="height: 40px; width: 100%;">
-    </form>
+    <!--<div class="col-md-12" style="padding-left: 3px; padding-right: 0px; display: inline; margin-top: 13px; margin-left: 0px">-->
 
-</template>
+        <!--<div class="col-md-4" style="padding: 0px; display: inline; word-break: break-all">-->
+            <!--{{user}}-->
+            <!--&lt;!&ndash;Show username&ndash;&gt;-->
+        <!--</div>-->
+
+        <!--<div class="col-md-8 col-md-offset-4" style="margin: 0px;border: 2px solid #359eb4; border-radius: 5px; background-color: #ffffff; padding: 5px; display: inline">-->
+
+            <!--<p style=" word-wrap: break-word;">-->
+                <!--{{content}}-->
+                <!--&lt;!&ndash;Show sentence&ndash;&gt;-->
+            <!--</p>-->
+
+        <!--</div>-->
+
+    <!--</div>-->
+
+<!--</template>-->
+
+
+
+<!--<template name="newChatItem">-->
+    <!--&lt;!&ndash;Input template for users to input the chat sentence&ndash;&gt;-->
+
+    <!--<form>-->
+        <!--<input type="text" placeholder="{{user}}Input Here" name="newItem" style="height: 40px; width: 100%;">-->
+    <!--</form>-->
+
+<!--</template>-->

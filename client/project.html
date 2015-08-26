@@ -11,26 +11,26 @@
     <div id="wrapper"  class="toggled" style="margin-left: 100px">
         <!--All components of this page is in the div-->
 
-        <div id="sidebar-wrapper">
-            <!--Sidebar div. Including the chat room and user list-->
+        <!--<div id="sidebar-wrapper">-->
+            <!--&lt;!&ndash;Sidebar div. Including the chat room and user list&ndash;&gt;-->
 
-            <div id="sidebar" style="padding: 0px; height:inherit;width: 300px;">
+            <!--<div id="sidebar" style="padding: 0px; height:inherit;width: 300px;">-->
 
-                <div class="sidebarChatRoom">
-                    {{> chatrooms}}
-                    <!--Html file in chatroom.html-->
-                    <!--JS file in chatroom.js-->
-                </div>
+                <!--<div class="sidebarChatRoom">-->
+                    <!--{{> chatrooms}}-->
+                    <!--&lt;!&ndash;Html file in chatroom.html&ndash;&gt;-->
+                    <!--&lt;!&ndash;JS file in chatroom.js&ndash;&gt;-->
+                <!--</div>-->
 
-                <div class="sidebarNewChatItem">
-                    {{> newChatItem}}
-                    <!--Html file in chatroom.html-->
-                    <!--JS file in chatroom.js-->
-                </div>
+                <!--<div class="sidebarNewChatItem">-->
+                    <!--{{> newChatItem}}-->
+                    <!--&lt;!&ndash;Html file in chatroom.html&ndash;&gt;-->
+                    <!--&lt;!&ndash;JS file in chatroom.js&ndash;&gt;-->
+                <!--</div>-->
 
-            </div>
+            <!--</div>-->
 
-        </div>
+        <!--</div>-->
 
 
 
@@ -48,21 +48,23 @@
                 <!--Show project name-->
 
                 <div class='profile'>
-                    <img src="/Img-project-nav-head.png">
+                    <!--<img src="/Img-project-nav-head.png">-->
+
+                    User:
                     {{userToSee.username}}
 
-                    <a  class="btn btn-default" id="menu-toggle" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px; margin-left: 30px"><img src="/chaticon.png" style="margin-right: 10px ;width: 30px; height: 30px">Chat Room</a>
+                    <!--<a  class="btn btn-default" id="menu-toggle" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px; margin-left: 30px"><img src="/chaticon.png" style="margin-right: 10px ;width: 30px; height: 30px">Chat Room</a>-->
                     <!--Button to trigger the expand and collapse of the chat room and user list.-->
 
 
 
-                    <a  href="/project/{{currentProjectt}}/flag/report" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px; margin-left: 10px"><img src="/groupPerson.png" style="margin-right: 10px; height: 25px; width: 35px; margin-bottom: 7px">All</a>
+                    <!--<a  href="/project/{{currentProjectt}}/flag/report" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px; margin-left: 10px"><img src="/groupPerson.png" style="margin-right: 10px; height: 25px; width: 35px; margin-bottom: 7px">All</a>-->
 
-                    <!--<a id="notesAll" href="#"><img src="/noteicon.png">Collapse Notes</a>-->
+                    <!--&lt;!&ndash;<a id="notesAll" href="#"><img src="/noteicon.png">Collapse Notes</a>&ndash;&gt;-->
 
 
-                    <p>Invite Code: {{currentProjectt}}</p>
-                    <!--Show invitation code-->
+                    <!--<p>Invite Code: {{currentProjectt}}</p>-->
+                    <!--&lt;!&ndash;Show invitation code&ndash;&gt;-->
                 </div>
 
             </div>
