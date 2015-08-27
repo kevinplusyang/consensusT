@@ -67,7 +67,17 @@ var updateRow = function(proID,rowNo){
             // the evaluation cells.
           var aver = calculateOne(rowNo,cell.column,proID);
               var v = calculateSD(rowNo,cell.column,proID,aver);
-          Cells.update(cell._id,{$set: {data: aver.toFixed(3), SDdata:v.toFixed(3)}});
+              console.log(aver);
+              if(isNaN(aver) ){
+
+
+                  Cells.update(cell._id,{$set: {data: "-", SDdata:v.toFixed(3)}});
+
+              }
+              else{
+                  Cells.update(cell._id,{$set: {data: aver.toFixed(3), SDdata:v.toFixed(3)}});
+
+              }
         }
       }else if(rowNo===-1){
           if(cell.column>1){
@@ -75,7 +85,17 @@ var updateRow = function(proID,rowNo){
           var aver = calculateOne(rowNo,cell.column,proID);
               var v = calculateSD2(rowNo,cell.column,proID,aver);
 
-          Cells.update(cell._id,{$set: {data: aver.toFixed(3), SDdata:v.toFixed(3)}});
+
+              if(isNaN(aver)|| isNaN(v)){
+                  Cells.update(cell._id,{$set: {data: "-", SDdata:"-"}});
+              }
+              else{
+                  Cells.update(cell._id,{$set: {data: aver.toFixed(3), SDdata:v.toFixed(3)}});
+              }
+
+
+
+
         }
       }
     })
@@ -339,7 +359,15 @@ Template.reportcellshow.helpers({
     **/
     dataPercent: function(){
       var value=Number(this.data);
-      return (value*100).toFixed(1);
+        if(isNaN(value)){
+            return "-"
+        }
+        else{
+            return (value*100).toFixed(1);
+        }
+
+
+
     }
 });
 

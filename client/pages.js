@@ -43,7 +43,16 @@ var updateWeight = function(proID,userID){
       cellFindCol(2,proID,userID).forEach(function(cell){
         
         var val=cellFindOne(cell.row, 1,proID,userID).data/sum;
-        Cells.update(cell._id,{$set: {data: val.toFixed(3) }});
+
+          if(isNaN(val)){
+              Cells.update(cell._id,{$set: {data: "-" }});
+          }
+          else{
+              Cells.update(cell._id,{$set: {data: val.toFixed(3) }});
+          }
+
+
+
 
       });
 
@@ -82,7 +91,15 @@ var updateTotal = function(proID,userID){
                   ;
               });
 
+
+          if(isNaN(sum)){
+              Cells.update(cell._id, {$set: {data:"-"}});
+          }
+          else{
               Cells.update(cell._id, {$set: {data: sum.toFixed(3)}});
+          }
+
+
 
 
 
@@ -360,7 +377,15 @@ Template.cellshow.helpers({
     },
     dataPercent: function(){
       var value=Number(this.data);
-      return (value*100).toFixed(1);
+
+        if(isNaN(value)){
+            return "-"
+        }
+        else{
+            return (value*100).toFixed(1);
+        }
+
+
     }
 });
 

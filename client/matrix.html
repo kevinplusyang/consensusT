@@ -88,7 +88,8 @@
           <!--<input placeholder={{data}}>-->
       {{else}}
         <!--{{> sliderCell}}-->
-          {{> editableText collection="cells" field="data" saveOnFocusout=true userCanEdit=false}}
+          <!--{{> editableText collection="cells" field="data" saveOnFocusout=true userCanEdit=false}}-->
+      {{dataPercent}}%
         <!--sliderCell: template file in matrix.html-->
         <!--helpers and events in pages.js-->
       {{/if}}
@@ -110,6 +111,7 @@
           {{/if}}
       {{else}}
          {{dataPercent}}%
+          <!--{{data}}-->
       {{/if}}
 
   {{/if}}

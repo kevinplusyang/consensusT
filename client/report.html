@@ -40,7 +40,7 @@
                 <!--<h2>Everyone: {{name}}</h2>-->
 
                 <div style="float:left;width:50px;margin:20px auto;margin-top: 3px">
-                <h2>All</h2>
+                <h2 style="margin-top: 5px">All</h2>
                     </div>
 
 
@@ -55,19 +55,25 @@
                 <!--<a  class="btn btn-default" id="menu-toggle" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px;"><img src="/chaticon.png" style="margin-right: 10px width: 30px; height: 30px; padding-right: 10px">Chat Room</a>-->
 
 
-                <div style="float:left;width:200px;margin:20px auto;margin-top: 10px">
-                    <a  href="/project/{{this._id}}/{{UID}}/" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px;margin-left: 20px;"><img src="/singlePeople.png" style="margin-right: 10px;margin-bottom: 3px; height: 20px; width: 20px">Back To My Consensus</a>
+                <!--<div style="float:left;width:200px;margin:20px auto;margin-top: 10px">-->
+                    <!--<a  href="/project/{{this._id}}/{{UID}}/" style="background-color: #F1F3F4; border: 0px; color: #6f747e; font-size: 13px;margin-left: 20px;"><img src="/singlePeople.png" style="margin-right: 10px;margin-bottom: 3px; height: 20px; width: 20px">Back To My Consensus</a>-->
 
 
-                </div>
+                <!--</div>-->
 
 
-<div style="float:left;width:200px;margin:20px auto;margin-top: 10px; margin-left: 20px">
-    {{> SDshow}}
-</div>
+<!--<div style="float:left;width:200px;margin:20px auto;margin-top: 10px; margin-left: 20px">-->
+   <!---->
+<!--</div>-->
 
-                <div style="float:left;width: 300px;margin:20px auto;margin-top: 0px; margin-left: 20px; margin-bottom: 0px">
+                <div style="float:left;width: 300px;margin:20px auto;margin-top: 0px; margin-left: 400px; margin-bottom: 0px">
                     {{> setTH}}
+
+                    <div style="padding-top: 7px">
+                        {{> SDshow}}
+                    </div>
+
+
                 </div>
 
                 <!--<a style="margin-left: 20px">-->
@@ -223,6 +229,7 @@
                   <!--</label>-->
 
                  {{else}}
+
 
                     {{data}}
 
