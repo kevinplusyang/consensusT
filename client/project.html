@@ -1,6 +1,6 @@
 <template name="project">
     <!--In this template, it can present the matrix and chat room-->
-
+    {{> sAlert}}
 
     <div class="sidebarUserInProject" style="position: fixed;  height: 100%; z-index: 999999">
         {{> userInProject}}
@@ -8,7 +8,7 @@
         <!--JS file in userInProject.js-->
     </div>
 
-    <div id="wrapper"  class="toggled" style="margin-left: 100px">
+    <!--<div id="wrapper"  class="toggled" style="margin-left: 100px">-->
         <!--All components of this page is in the div-->
 
         <!--<div id="sidebar-wrapper">-->
@@ -43,8 +43,8 @@
             <!--Project Navigation bar-->
 
             <div class="project-nav">
-                <div style="float:left;width:400px;margin:20px auto;margin-top: 0px; margin-left: 20px">
-                <p style="color: #196d85; font-size: 15px">Project Name - </p>
+                <div style="float:left;width:400px;margin:20px auto;margin-top: 0px; margin-left: 40px">
+                <p style="color: #196d85; font-size: 15px">Project Name</p>
                     <p style="color: #196d85; font-size: 20px">
                         {{projectName}}
                     </p>
@@ -94,11 +94,11 @@
             <!--JS file in pages.js-->
         </div>
 
-        <div style="padding-left: 200px; padding-top: 30px">
-            <p style="color: #1b6d85; font-size: 20px">Please use integers between 1~10 to compare candidates</p>
+        <div style="padding-left: 630px; padding-top: 30px">
+            <p style="color: #1b6d85; font-size: 13px">Use integers between 1~10 to compare candidates</p>
         </div>
 
-    </div>
+    <!--</div>-->
 
     <!-- // <script src="jquery-2.1.4.min.js"></script> -->
     <!-- // <script src="bootstrap.js"></script> -->

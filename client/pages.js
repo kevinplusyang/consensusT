@@ -6,6 +6,48 @@ Meteor.subscribe("projects");
 Meteor.subscribe("chatroom");
 Meteor.subscribe("notes");
 
+
+//sAlert = {
+//    settings: {
+//        effect: '',
+//        position: 'top-right',
+//        timeout: 1000,
+//        html: false,
+//        onRouteClose: true,
+//        stack: true,
+//        offset: 0 // in px - will be added to first alert (bottom or top - depends of the position in config)
+//    },
+//    config: function (configObj) {
+//        var self = this;
+//        if (_.isObject(configObj)) {
+//            self.settings = _.extend(self.settings, configObj);
+//        } else {
+//            throw new Meteor.Error(400, 'Config must be an object!');
+//        }
+//    },
+//    closeAll: function () {
+//        sAlert.collection.remove({});
+//    },
+//    close: function (id) {
+//        if (_.isString(id)) {
+//            sAlertClose(id);
+//        }
+//    },
+//    info: function (msg, customSettings) {
+//        return conditionSet(this, msg, 'info', customSettings);
+//    },
+//    error: function (msg, customSettings) {
+//        return conditionSet(this, msg, 'error', customSettings);
+//    },
+//    success: function (msg, customSettings) {
+//        return conditionSet(this, msg, 'success', customSettings);
+//    },
+//    warning: function (msg, customSettings) {
+//        return conditionSet(this, msg, 'warning', customSettings);
+//    }
+//};
+
+
 /**
 cellFindOne: return a single cell in this personal matrix.
 **/
@@ -85,8 +127,6 @@ var updateTotal = function(proID,userID){
                       }
 
 
-
-
                   }
                   ;
               });
@@ -143,6 +183,33 @@ Template.matrix.helpers({
     cell: function (currentProjectt) {
 
       return Cells.find({projectID: currentProjectt});
+    },
+
+    'checkit': function(){
+        var currentUser = Meteor.userId();
+        //console.log("==");
+        var cellUserCursor=Cells.find({userID:currentUser, isReport:false});
+
+
+        cellUserCursor.forEach(function(x){
+
+            if(x.row>=1&& x.column>=3){
+                if(x.data==1||x.data==2||x.data==3||x.data==4||x.data==5||x.data==6||x.data==7||x.data==8||x.data==9||x.data==10||x.data=="Input"||x.data=="-")
+                {
+
+                }else{
+                    //alert("You have Illegal Input! Enter Integer Between 1~10");
+                    sAlert.error('Illegal Input In Your Page!');
+                    Cells.update(x._id,{$set: {data: "-"}});
+                }
+            }
+
+
+
+
+        });
+
+
     },
 
     cellthis:function(userID,currentProjectt){
@@ -339,6 +406,10 @@ Template.cellshow.helpers({
             return false;
         }
     },
+
+
+
+
 
     isFactor: function(){
       var flag = (this.column === 0);

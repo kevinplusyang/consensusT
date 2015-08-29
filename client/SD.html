@@ -2,13 +2,14 @@
 <template name="SDshow">
     <p class="show-SD" style="color: #6f747f; font-size: 13px">
         <input type="checkbox" checked="{{showSD}}" />
-        Show Standard Deviation
+        Show Disagreement Index
     </p>
 </template>
 
 <!-- template for SD sliders. -->
 <template name="setTH">
-    <span style="color: #6f747f;font-size: 13px">Setting Agreement threshold: {{sTHpct}}%</span>
+    <!--<span style="color: #6f747f;font-size: 13px">Disagreement threshold: {{sTHpct}}%</span>-->
+    <span style="color: #6f747f;font-size: 13px">Highlight Disagreements</span>
     <div class="slider-container">
       <div id="SDSlider"></div>
     </div>

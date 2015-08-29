@@ -67,7 +67,7 @@ var updateRow = function(proID,rowNo){
             // the evaluation cells.
           var aver = calculateOne(rowNo,cell.column,proID);
               var v = calculateSD(rowNo,cell.column,proID,aver);
-              console.log(aver);
+              //console.log(aver);
               if(isNaN(aver) ){
 
 
@@ -286,12 +286,22 @@ Template.reportMatBody.helpers({
 var findMaxSD = function(proID){
     // get the SDdata field data of all the report cells
     var cellCursor = Cells.find({projectID:proID,isReport:true}, 
-    {fields: {SDdata: 1}});
+    {fields: {SDdata: 1, row:1, column:1}});
     var max=0;
     cellCursor.forEach(function (cell) {
-      if(cell.SDdata>max){
-        max=cell.SDdata;
-      }
+
+        if(cell.column>=3&&cell.row>=0){
+            if(cell.SDdata>max){
+                max=cell.SDdata;
+            }
+
+        }
+
+
+
+
+
+
     });
 
     return max;
@@ -330,7 +340,11 @@ Template.reportcellshow.helpers({
               //whether to change color.
               var thisProject = Projects.findOne({_id: this.projectID});
               var maxSD=findMaxSD(this.projectID);
+          //console.log(maxSD);
               var SDth = Number(thisProject.sTH)*maxSD;
+          //console.log(Number(thisProject.sTH));
+          //console.log("SDTH");
+          //console.log(SDth);
               
               if(this.SDdata >= SDth){
                 var changeColor = true;
@@ -437,7 +451,7 @@ Template.addCandidate.events({
           }else{
           Cells.insert({
           userID: nowUserId,isReport: false,
-          data: "input",
+          data: "Input",
           row: i,
           createdAt: new Date(),
           column: Number(this.columns)+3,
@@ -628,11 +642,11 @@ toggle shownotes: set session array showNotes.
 
 Template.someTemplate.helpers({
     'ggg': function(cellid, what){
-        console.log(cellid);
+        //console.log(cellid);
         var row = Cells.findOne({_id:cellid}).row;
         var column = Cells.findOne({_id:cellid}).column;
-        console.log(row);
-        console.log(column);
+        //console.log(row);
+        //console.log(column);
 
 
 
@@ -640,9 +654,40 @@ Template.someTemplate.helpers({
             return false
         }
         else{
-            return Cells.find({isReport: false,row: row, column:column, projectID:what});
+
+            if(row==-1){
+                return Cells.find({isReport: true,row: row, column:column, projectID:what});
+            }
+
+            return Cells.find({isReport: true,row: row, column:column, projectID:what});
+            //return Cells.find({isReport: false,row: row, column:column, projectID:what});
         }
 
 
+    },
+
+
+    isT: function(){
+        var flag = (this.row === -1);
+        return flag;
+    },
+
+
+    'ccpr': function(){
+
+        //var cellid= this._id;
+        //var row = Cells.findOne({_id:cellid}).row;
+        //
+        //
+        //if(row==-1){
+        //    return true;
+        //}
+        //else{
+        //    return false;
+        //}
+
+
+        return true;
     }
+
 })
