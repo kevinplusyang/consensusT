@@ -659,7 +659,7 @@ Template.someTemplate.helpers({
                 return Cells.find({isReport: true,row: row, column:column, projectID:what});
             }
 
-            return Cells.find({isReport: true,row: row, column:column, projectID:what});
+            return Cells.find({isReport: false,row: row, column:column, projectID:what});
             //return Cells.find({isReport: false,row: row, column:column, projectID:what});
         }
 

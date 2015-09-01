@@ -199,7 +199,7 @@ Template.matrix.helpers({
 
                 }else{
                     //alert("You have Illegal Input! Enter Integer Between 1~10");
-                    sAlert.error('Illegal Input In Your Page!');
+                    sAlert.error('Use integers between 1~10 to compare candidates');
                     Cells.update(x._id,{$set: {data: "-"}});
                 }
             }
@@ -249,11 +249,11 @@ Template.matBody.helpers({
 
       return cellFindRow(rowNo,projectID,userID);
     },
-    showNotes: function(row){
-
-    return Session.get('showNotes')[row-1];
-
-    }
+    //showNotes: function(row){
+    //
+    //return Session.get('showNotes')[row-1];
+    //
+    //}
 });
 
 
@@ -416,9 +416,9 @@ Template.cellshow.helpers({
       return flag;
     },
 
-    showNotes: function(row){
-    return Session.get('showNotes')[row-1];
-    },
+    //showNotes: function(row){
+    //return Session.get('showNotes')[row-1];
+    //},
     
     /*
     type: to switch class for report cells
@@ -557,14 +557,14 @@ Template.project.events({
   SET session.showNotes to be all false.
    **/
 
-   'click #notesAll': function(event) {
- 
-    event.preventDefault();
-    var getShowNotes = Session.get('showNotes');
-    var newSN = getShowNotes;
-    for (var item in newSN){
-      newSN[item] = false;
-    }
-    Session.set({showNotes: newSN});
-    }
+   //'click #notesAll': function(event) {
+   //
+   // event.preventDefault();
+   // var getShowNotes = Session.get('showNotes');
+   // var newSN = getShowNotes;
+   // for (var item in newSN){
+   //   newSN[item] = false;
+   // }
+   // Session.set({showNotes: newSN});
+   // }
   });

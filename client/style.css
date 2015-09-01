@@ -149,9 +149,9 @@ a {
 .col0{
 	text-align: left !important;	
 	padding-left: 20px;
-	font-size:24px;
+	font-size:20px;
 	width: 200px;
-	word-break: break-all;
+	word-break: keep-all;
 }
 .col1{
 	width: 50px;

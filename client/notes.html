@@ -1,95 +1,95 @@
-<template name="notes">    
-    <tr>
-    	<td></td>   	    	     	
-    	{{#each colhere row projectID}}
-        <!-- Template.notes.helpers, notes.js -->
-    	{{> noteArea}}    	
-    	{{/each}}
-        <!--noteArea: template file in notes.html-->
-        <!--helpers and events in notes.js-->
-    </tr>
-</template>
+<!--<template name="notes">    -->
+    <!--<tr>-->
+    	<!--<td></td>   	    	     	-->
+    	<!--{{#each colhere row projectID}}-->
+        <!--&lt;!&ndash; Template.notes.helpers, notes.js &ndash;&gt;-->
+    	<!--{{> noteArea}}    	-->
+    	<!--{{/each}}-->
+        <!--&lt;!&ndash;noteArea: template file in notes.html&ndash;&gt;-->
+        <!--&lt;!&ndash;helpers and events in notes.js&ndash;&gt;-->
+    <!--</tr>-->
+<!--</template>-->
 
-<template name="reportNotes">    
-    <tr>
-        <td></td>                      
-        {{#each colhere row projectID}}
-        <!-- Template.notes.helpers, notes.js -->
-        {{> reportNoteArea}}
-       {{/each}}
-        <!--reportNoteArea: template file in notes.html-->
-        <!--helpers and events in notes.js-->
-    </tr>
-</template>
+<!--<template name="reportNotes">    -->
+    <!--<tr>-->
+        <!--<td></td>                      -->
+        <!--{{#each colhere row projectID}}-->
+        <!--&lt;!&ndash; Template.notes.helpers, notes.js &ndash;&gt;-->
+        <!--{{> reportNoteArea}}-->
+       <!--{{/each}}-->
+        <!--&lt;!&ndash;reportNoteArea: template file in notes.html&ndash;&gt;-->
+        <!--&lt;!&ndash;helpers and events in notes.js&ndash;&gt;-->
+    <!--</tr>-->
+<!--</template>-->
 
-<template name="noteArea">
+<!--<template name="noteArea">-->
 
-<td colspan="{{columnWeight}}" class='notebook'>
-    <ul>
-    
-        <!-- notelist -->
-    	{{#each notelist}}
-        	{{> noteList}}
-        {{/each}}
-        <!--noteList: template file in notes.html-->
-        <!--helpers and events in notes.js-->
-       
+<!--<td colspan="{{columnWeight}}" class='notebook'>-->
+    <!--<ul>-->
+    <!---->
+        <!--&lt;!&ndash; notelist &ndash;&gt;-->
+    	<!--{{#each notelist}}-->
+        	<!--{{> noteList}}-->
+        <!--{{/each}}-->
+        <!--&lt;!&ndash;noteList: template file in notes.html&ndash;&gt;-->
+        <!--&lt;!&ndash;helpers and events in notes.js&ndash;&gt;-->
+       <!---->
 
-        <!-- 'click to add' area -->    
-        <li>
-        {{#with addNoteDefault}}
-        {{> addNote}}
-        <!--addNote: template file in notes.html-->
-        <!--helpers and events in notes.js-->
-        {{/with}}
-        </li>
+        <!--&lt;!&ndash; 'click to add' area &ndash;&gt;    -->
+        <!--<li>-->
+        <!--{{#with addNoteDefault}}-->
+        <!--{{> addNote}}-->
+        <!--&lt;!&ndash;addNote: template file in notes.html&ndash;&gt;-->
+        <!--&lt;!&ndash;helpers and events in notes.js&ndash;&gt;-->
+        <!--{{/with}}-->
+        <!--</li>-->
 
-    </ul>
-</td>   
-</template>
-
-
-<template name="reportNoteArea">
-<!-- similar with template:NoteArea, without colspan-->
-<td class='notebook'>
-    <ul>
-        
-        <!-- notelist -->
-        {{#each notelist}}
-            {{> noteList}}
-        {{/each}}
-        <!--noteList: template file in notes.html-->
-        <!--helpers and events in notes.js-->
-        
-        <!-- 'click to add' area --> 
-        <li>
-        {{#with addNoteDefault}}
-        {{> addNote}}
-        {{/with}}
-        </li>
-    </ul>
-</td>   
-</template>
+    <!--</ul>-->
+<!--</td>   -->
+<!--</template>-->
 
 
-<template name="addNote">
+<!--<template name="reportNoteArea">-->
+<!--&lt;!&ndash; similar with template:NoteArea, without colspan&ndash;&gt;-->
+<!--<td class='notebook'>-->
+    <!--<ul>-->
+        <!---->
+        <!--&lt;!&ndash; notelist &ndash;&gt;-->
+        <!--{{#each notelist}}-->
+            <!--{{> noteList}}-->
+        <!--{{/each}}-->
+        <!--&lt;!&ndash;noteList: template file in notes.html&ndash;&gt;-->
+        <!--&lt;!&ndash;helpers and events in notes.js&ndash;&gt;-->
+        <!---->
+        <!--&lt;!&ndash; 'click to add' area &ndash;&gt; -->
+        <!--<li>-->
+        <!--{{#with addNoteDefault}}-->
+        <!--{{> addNote}}-->
+        <!--{{/with}}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</td>   -->
+<!--</template>-->
 
-<span class="editable-text-trigger">
-{{> editableText collection="notes" field="content" saveOnFocusout=true beforeUpdate="setIsAddBefore" afterUpdate="addInsertHolder"}}
-</span>
-<!-- setIsAddBefore&addInsertHolder: collection.js     -->
-</template>
 
-<template name="noteList">
-<li >
-    <div class="note-head">{{name}}</div>
-    <div class="note-content">
-        {{#if editable}}
-            {{> editableText collection="notes" field="content" saveOnFocusout=true}}
-        {{else}}
-            {{content}}
-        {{/if}}
-    </div>
-</li>
+<!--<template name="addNote">-->
 
-</template>
+<!--<span class="editable-text-trigger">-->
+<!--{{> editableText collection="notes" field="content" saveOnFocusout=true beforeUpdate="setIsAddBefore" afterUpdate="addInsertHolder"}}-->
+<!--</span>-->
+<!--&lt;!&ndash; setIsAddBefore&addInsertHolder: collection.js     &ndash;&gt;-->
+<!--</template>-->
+
+<!--<template name="noteList">-->
+<!--<li >-->
+    <!--<div class="note-head">{{name}}</div>-->
+    <!--<div class="note-content">-->
+        <!--{{#if editable}}-->
+            <!--{{> editableText collection="notes" field="content" saveOnFocusout=true}}-->
+        <!--{{else}}-->
+            <!--{{content}}-->
+        <!--{{/if}}-->
+    <!--</div>-->
+<!--</li>-->
+
+<!--</template>-->
