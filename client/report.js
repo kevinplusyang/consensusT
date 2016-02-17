@@ -51,6 +51,24 @@ var calculateOne = function(rowNo, columnNo,proID){
     return aver;
 }
 
+
+var completeP = function(PID){
+    var cellCursor = Cells.find({isReport:false, column:{"$gte":3},row:{"$gte":1},data:{"$in":['Input','-']}});
+    var NC = cellCursor.count();
+    return NC;
+
+}
+
+
+var findAll = function(PID){
+    //var col = Projects.findOne({_id:PID}).columns;
+    //var row = Projects.findOne({_id:PID}).rows;
+    //var all = col*row;
+    var cellCursor = Cells.find({isReport:false, column:{"$gte":3},row:{"$gte":1}});
+    var all = cellCursor.count();
+    return all
+}
+
 /**
 updateRow: for a certain rowNo in report, 
 calculate the average of each cell of all the users in this project.
@@ -253,7 +271,22 @@ Template.reportMatrix.helpers({
 
     UID: function(){
         return Meteor.userId();
-    }
+    },
+
+    getCP: function(PID){
+        var NC = completeP(PID);
+        var ALL = findAll(PID);
+        //console.log("---");
+        //console.log(NC);
+        //console.log(ALL);
+        //console.log("%%%");
+        var temp = ((ALL-NC)/ALL)*100;
+        Session.set('progressPercent', temp );
+        //return (((ALL-NC)/ALL)*100).toFixed(1);
+    },
+
+
+
   });
 
 
@@ -272,7 +305,18 @@ Template.reportMatBody.helpers({
     showNotes: function(row){
     return Session.get('showNotes')[row-1];
 
-    }
+    },
+
+    //getCP: function(PID){
+    //    var NC = completeP(PID);
+    //    var ALL = findAll(PID);
+    //    console.log("---");
+    //    console.log(NC);
+    //    console.log(ALL);
+    //    console.log("%%%");
+    //    return (ALL-NC)/ALL;
+    //}
+
 });
 
 
@@ -297,8 +341,25 @@ var findMaxSD = function(proID){
 
         }
 
+    });
+
+    return max;
+}
 
 
+
+
+var findMaxSDforWeight = function(proID){
+    // get the SDdata field data of all the report cells
+    var cellCursor = Cells.find({projectID:proID,isReport:true,column:2},
+        {fields: {SDdata: 1, row:1, column:1}});
+    var max=0;
+    cellCursor.forEach(function (cell) {
+
+
+            if(cell.SDdata>max){
+                max=cell.SDdata;
+            }
 
 
 
@@ -334,11 +395,35 @@ Template.reportcellshow.helpers({
         }else if(this.column===0){
           temp = 'show col0';
           }else if(this.column===1){
+
             temp = 'show col1';
-            }else{
+            }
+
+      else if(this.column===2){
+          temp = 'show';
+          var thisProjectforWeight = Indexs.findOne({userID:Meteor.userId()});
+          var maxSDforWeight=findMaxSDforWeight(this.projectID);
+          var SDthforWeight = Number(thisProjectforWeight.sTH)*maxSDforWeight;
+          if(this.SDdata >= SDthforWeight){
+              var changeColorforWeight = true;
+          }else{
+              changeColorforWeight=false;
+          }
+          if(changeColorforWeight){
+              temp= 'show colorCellforWeight';
+          }
+
+
+
+      }
+
+
+
+      else {
               temp = 'show';
               //whether to change color.
-              var thisProject = Projects.findOne({_id: this.projectID});
+              //var thisProject = Projects.findOne({_id: this.projectID});
+              var thisProject = Indexs.findOne({userID:Meteor.userId()});
               var maxSD=findMaxSD(this.projectID);
           //console.log(maxSD);
               var SDth = Number(thisProject.sTH)*maxSD;
@@ -352,9 +437,10 @@ Template.reportcellshow.helpers({
                 changeColor=false;
               }
               if(changeColor){
-                temp= 'show colorCell';
+                      temp= 'show colorCell';
               }
-      }
+
+            }
     return temp;
     },
 

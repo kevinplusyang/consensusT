@@ -139,6 +139,13 @@ a {
 	border: 1px solid #FFFFFF;
 	color: #1C8090;
 }
+/*.table-show:hover{*/
+	/*text-align: center;*/
+	/*height: 55px;*/
+	/*background: #123456;*/
+	/*border: 1px solid #FFFFFF;*/
+	/*color: #1C8090;*/
+/*}*/
 .table-SD{
 	text-align: center;
 	height: 55px;
@@ -155,6 +162,24 @@ a {
 }
 .col1{
 	width: 50px;
+}
+.col1:hover{
+	width: 50px;
+	background: #87d500;
+}
+.table-body{
+	text-align: center;
+	height: 55px;
+	background: #F1F3F4;
+	border: 1px solid #FFFFFF;
+	color: #1C8090;
+}
+.table-body:hover{
+	text-align: center;
+	height: 55px;
+	background: #87d500;
+	border: 1px solid #FFFFFF;
+	color: #1C8090;
 }
 .show-notes{
 	float: right;
@@ -345,6 +370,12 @@ a {
 	background-color: #e09300;
 	color: #fff;
 }
+
+.colorCellforWeight{
+	background-color: #e09300;
+	color: #fff;
+}
+
 #SDSlider,.sliderrr{
 	background: #61bfce;
 

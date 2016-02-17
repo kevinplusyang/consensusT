@@ -20,23 +20,40 @@ Template.changePassword.events({
  Function: Register a user
  **/
 Template.register.events({
-    'submit form': function(){
+    //'submit form': function(){
+    //    event.preventDefault();
+    //    var username = $('[name=username]').val();
+    //    var password = '1234';
+    //    Accounts.createUser({
+    //            username: username,
+    //            password: password},
+    //        function(err){
+    //            if(err)
+    //                console.log(err);
+    //            else
+    //            {
+    //                var currentUserID = Meteor.userId();
+    //            }
+    //        });
+    //    Router.go('user');
+    //}
+
+
+
+    'submit form': function(event){
         event.preventDefault();
         var username = $('[name=username]').val();
         var password = '1234';
-        Accounts.createUser({
-                username: username,
-                password: password},
-            function(err){
-                if(err)
-                    console.log(err);
-                else
-                {
-                    var currentUserID = Meteor.userId();
-                }
-            });
+        Meteor.loginWithPassword(username, password,function(err){
+            if(err){
+                console.log(err);
+            }
+        });
         Router.go('user');
     }
+
+
+
 });
 
 
@@ -165,7 +182,9 @@ Template.joinProject.events({
         //store invitation code(projectID) in joinporject
         $('[name=joinproject]').val('');
 
+
         Projects.update({_id:joinproject},{$push: {users: {userId:currentUser,username:name}}});
+        Indexs.insert({userID:currentUser,sTH:0});
         initialPageforInv(joinproject,currentUser,name);
     }
 });

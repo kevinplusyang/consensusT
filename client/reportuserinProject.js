@@ -57,20 +57,24 @@ Template.reportuserInProject.events({
         //});
 
 
+        var confirm = window.confirm("Please Contact Us!");
+
+        if(confirm){
+            var userCellCursor = Cells.find({projectID:this.pj,userID:this.userId});
+            //console.log(this.pj);
+            //console.log(userCellCursor.count());
 
 
-        var userCellCursor = Cells.find({projectID:this.pj,userID:this.userId});
-        //console.log(this.pj);
-        //console.log(userCellCursor.count());
+
+            Projects.update({_id:this.pj},{$pull: {users: {userId:this.userID,username:this.username}}});
 
 
+            userCellCursor.forEach(function(cell){
+                Cells.remove({_id:cell._id});
+            })
 
-        Projects.update({_id:this.pj},{$pull: {users: {userId:this.userID,username:this.username}}});
+        }
 
-
-        userCellCursor.forEach(function(cell){
-            Cells.remove({_id:cell._id});
-        })
 
 
 

@@ -5,6 +5,7 @@ Meteor.subscribe("cells");
 Meteor.subscribe("projects");
 Meteor.subscribe("chatroom");
 Meteor.subscribe("notes");
+Meteor.subscribe("indexs");
 
 
 //sAlert = {
@@ -120,7 +121,7 @@ var updateTotal = function(proID,userID){
 
                       //sum += normalized weight * cell.data
 
-                      if(cellInside.data==1||cellInside.data==2||cellInside.data==3||cellInside.data==4||cellInside.data==5||cellInside.data==6||cellInside.data==7||cellInside.data==8||cellInside.data==9||cellInside.data==10) {
+                      if(cellInside.data==1||cellInside.data==2||cellInside.data==3||cellInside.data==4||cellInside.data==5) {
 
                           sum = sum + Number(cellFindOne(cellInside.row, 2, proID, userID).data) * Number(cellInside.data);
 
@@ -194,12 +195,12 @@ Template.matrix.helpers({
         cellUserCursor.forEach(function(x){
 
             if(x.row>=1&& x.column>=3){
-                if(x.data==1||x.data==2||x.data==3||x.data==4||x.data==5||x.data==6||x.data==7||x.data==8||x.data==9||x.data==10||x.data=="Input"||x.data=="-")
+                if(x.data==1||x.data==2||x.data==3||x.data==4||x.data==5||x.data=="Input"||x.data=="-")
                 {
 
                 }else{
                     //alert("You have Illegal Input! Enter Integer Between 1~10");
-                    sAlert.error('Use integers between 1~10 to compare candidates');
+                    sAlert.error('Use integers between 1~5 to compare candidates');
                     Cells.update(x._id,{$set: {data: "-"}});
                 }
             }
@@ -384,6 +385,8 @@ Template.addProject.events({
           
           Router.go('project', {_id: result,_uid: currentUser})});
 
+        Indexs.insert({userID:currentUser, sTH:0});
+
         $('[name=projectName]').val('');
     }
 });
@@ -434,9 +437,13 @@ Template.cellshow.helpers({
         return 'show col0'
       }else if(this.column===1){
         return 'show col1'
-      }else
+      }else if(this.column===2){
+          return 'show col2'
+      }
+
+      else
       {
-        return 'show';
+        return 'body';
       }
     },
     notWeight:function(){

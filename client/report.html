@@ -41,7 +41,8 @@
 
                 <div style="float:left;width:50px;margin:20px auto;margin-top: 3px">
                 <h2 style="margin-top: 5px">All</h2>
-                    </div>
+                </div>
+
 
 
 
@@ -66,7 +67,7 @@
    <!---->
 <!--</div>-->
 
-                <div style="float:left;width: 300px;margin:20px auto;margin-top: 0px; margin-left: 400px; margin-bottom: 0px">
+                <div style="float:left;width: 300px;margin:20px auto;margin-top: 0px; margin-left: 300px; margin-bottom: 0px">
                     {{> setTH}}
 
                     <div style="padding-top: 2px; color: #6f7480; font-size: 10px">
@@ -75,6 +76,27 @@
                     </div>
 
 
+                </div>
+
+
+
+                <div style="margin: 0px">
+                    <div style="color: #6f747f;font-size: 13px">
+
+                        Completed
+                    </div>
+
+
+                    {{getCP projectID}}
+                    <!--<div style="color: #6f747f;font-size: 10px; margin-top: 5px">-->
+                        <!--&lt;!&ndash;{{getCP projectID}}%&ndash;&gt;-->
+                    <!--</div>-->
+
+
+                </div>
+
+                <div>
+                    {{> circularProgress canvasSize=70 arcWidth=2}}
                 </div>
 
                 <!--<a style="margin-left: 20px">-->
@@ -179,6 +201,7 @@
         {{/each}}
 
 
+          <!--{{getCP projectID}}-->
 
         <!-- reportcellshow: template file is in report.html -->
         <!-- helpers and events are in report.js -->
